@@ -1,0 +1,33 @@
+// Question: Have the function LongestWord(sen) take the sen parameter being passed and return the
+// largest word in the string. If there are two or more words that are the same length, return the
+// first word from the string with that length. Ignore punctuation and assume sen will not be empty. 
+
+function wordTransform(word){
+  var newWord="";
+  for (var i=0; i<word.length; i++){
+    if ((word[i]>="a" && word[i]<="z") || (word[i]>="A" && word[i]<="Z"))
+      newWord +=word[i]; 
+    else break;
+  }
+  return newWord; 
+}
+  
+function LongestWord(sen) { 
+var array = sen.split(" ");
+for(var i=0; i<array.length; i++){
+array[i]=wordTransform(array[i]);
+   }
+var current="";
+for (var j=0; j<array.length; j++){
+  if (array[j].length > current.length)
+    current = array[j];
+  }
+
+// code goes here  
+sen=current;  
+return sen; 
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+LongestWord(readline());           
