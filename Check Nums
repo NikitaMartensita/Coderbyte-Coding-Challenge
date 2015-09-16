@@ -1,0 +1,20 @@
+// Question: Have the function CheckNums(num1,num2) take both parameters being passed and return 
+// the string true if num2 is greater than num1, otherwise return the string false. If the parameter
+// values are equal to each other then return the string -1. 
+
+function CheckNums(num1, num2) { 
+var flag =null;
+if(num1>num2)
+  flag = "false";
+else if (num1<num2)
+       flag = "true";
+     else
+       flag = "-1";
+
+// code goes here  
+return flag; 
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+CheckNums(readline());           
