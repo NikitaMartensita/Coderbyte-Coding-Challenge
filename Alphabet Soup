@@ -1,0 +1,21 @@
+// Question: Have the function AlphabetSoup(str) take the str string parameter being passed and
+// return the string with the letters in alphabetical order (ie. hello becomes ehllo). Assume
+// numbers and punctuation symbols will not be included in the string. 
+
+function AlphabetSoup(str) { 
+var res="";
+for (var j= "a".charCodeAt(); j<= "z".charCodeAt() ;j++){
+  for (var i=0; i<str.length; i++){
+    if(str[i]==String.fromCharCode(j))
+      res += String.fromCharCode(j);
+  }
+}
+
+// code goes here  
+return res; 
+}
+
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+AlphabetSoup(readline());           
