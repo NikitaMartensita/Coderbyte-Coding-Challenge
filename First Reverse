@@ -1,0 +1,14 @@
+// Question: Have the function FirstReverse(str) take the str parameter being passed and return the string in reversed order. 
+function FirstReverse(str) { 
+var old ="";
+for(var i=str.length-1; i>=0; i--){
+  old += str[i];
+}
+str=old;
+  // code goes here  
+  return str; 
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+FirstReverse(readline());           
