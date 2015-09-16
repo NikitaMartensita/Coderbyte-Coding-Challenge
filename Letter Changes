@@ -1,0 +1,37 @@
+// Question: Have the function LetterChanges(str) take the str parameter being passed and modify it using
+// the following algorithm. Replace every letter in the string with the letter following it in the alphabet
+// (ie. c becomes d, z becomes a). Then capitalize every vowel in this new string (a, e, i, o, u) and finally
+// return this modified string.
+
+function LetterChanges(str) { 
+var len = str.length;
+var res="";
+  
+for(var i=0; i<len; i++){
+  if((str[i]>="a" && str[i]<="z") || (str[i]>="A" && str[i]<="Z")){
+    if(str[i]=="z")
+      res+= "a";
+    else if(str[i]=="Z")
+           res+= "A";
+         else
+           res+= String.fromCharCode(str[i].charCodeAt()+1);
+  }
+  else
+  res+= str[i];
+}
+  
+var res2="";
+for(var j=0; j<len; j++){
+  if (res[j]=="a" || res[j]=="e" || res[j]=="i" || res[j]=="o" || res[j]=="u")
+    res2+= res[j].toUpperCase();
+  else res2+= res[j];
+}
+
+str=res2;
+// code goes here  
+return str; 
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+LetterChanges(readline());           
