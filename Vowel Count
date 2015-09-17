@@ -1,0 +1,18 @@
+// Question: Have the function VowelCount(str) take the str string parameter being passed and return the number of vowels
+// the string contains (ie. "All cows eat grass" would return 5). Do not count y as a vowel for this challenge. 
+
+function VowelCount(str) { 
+var count=0;
+for(var i=0; i<str.length; i++){
+if( str[i]=="a" || str[i]=="e" || str[i]=="i" || str[i]=="o" || str[i]=="u" || str[i]=="A" || str[i]=="E" || str[i]=="I"
+   || str[i]=="O" || str[i]=="U" )
+  count++;
+}
+
+// code goes here  
+return count; 
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+VowelCount(readline());           
