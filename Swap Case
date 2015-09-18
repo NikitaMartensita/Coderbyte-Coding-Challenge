@@ -1,0 +1,22 @@
+// Question: Have the function SwapCase(str) take the str parameter and swap the case of each character. For example:
+// if str is "Hello World" the output should be hELLO wORLD. Let numbers and symbols stay the way they are.
+
+function SwapCase(str) { 
+var len = str.length;
+var res="";
+for (var i=0; i<len; i++){
+  if(str[i]>="a" && str[i]<="z" )
+    res += str[i].toUpperCase();
+  else  if (str[i]>="A" && str[i]<="Z" )
+           res += str[i].toLowerCase();
+        else 
+           res += str[i];
+}
+
+// code goes here  
+return res; 
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+SwapCase(readline());           
