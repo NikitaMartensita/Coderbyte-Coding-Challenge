@@ -1,0 +1,85 @@
+// Question: Have the function SecondGreatLow(arr) take the array of numbers stored in arr and return the 
+// second lowest and second greatest numbers, respectively, separated by a space. For example: if arr 
+// contains [7, 7, 12, 98, 106] the output should be 12 98. The array will not be empty and will contain 
+// at least 2 numbers. It can get tricky if there's just two numbers! 
+
+function SecondGreatLow(arr) { 
+  var newArr = arr.sort(function(a, b){return a-b});
+  var secMax=null;
+  for (var i=newArr.length-1; i>0; i--){
+    if(newArr[i-1] != newArr[i]){
+      secMax = newArr[i-1];
+      break;}
+  }
+   
+  var secMin=null;
+  for (var j=0; j<newArr.length-1; j++){
+     if(newArr[j+1] != newArr[j]){
+       secMin = newArr[j+1];
+       break;
+      }
+  }
+   
+return secMin+" "+secMax; 
+}
+
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+SecondGreatLow(readline());           
+
+
+
+/*function SecondGreatLow(arr) { 
+  if (arr.length == 2){
+    if(arr[0] < arr[1])
+      return arr[1]+" "+arr[0]; 
+    else
+      return arr[0]+" "+arr[1];
+}
+    
+var max=arr[0];
+var min=arr[0];
+for(var i=1; i<arr.length; i++){
+  if(arr[i]>max)
+    max =arr[i];
+ if(arr[i]<min)
+    min =arr[i];
+}
+   
+var secMax;
+for(var k=0; k<arr.length; k++){
+ if(arr[k]!=max){
+   secMax=arr[k];
+   break;
+ }
+}
+
+for(var j=0; j<arr.length; j++){
+ if(arr[j]!= max){
+ if(arr[j]>secMax)
+    secMax =arr[j];
+  }
+}
+    
+var secMin;
+for(var t=0; t<arr.length; t++){
+   if(arr[t]!=min){
+     secMin=arr[t];
+     break;
+   }
+}
+
+for(var r=0; r<arr.length; r++){
+  if(arr[r]!= min){
+     if(arr[r]<secMin)
+        secMin =arr[r];
+  }
+}
+   
+return secMin+" "+secMax;
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+SecondGreatLow([5,3,7, 7, 12, 98, 106]);  
+*/           
