@@ -1,0 +1,52 @@
+// Question: Have the function LetterCountI(str) take the str parameter being passed and return the first
+// word with the greatest number of repeated letters. For example: "Today, is the greatest day ever!" should
+// return greatest because it has 2 e's (and 2 t's) and it comes before ever which also has 2 e's. If there 
+// are no words with repeating letters return -1. Words will be separated by spaces.
+
+function LetterCountI(str) { 
+  function countGreRepeat(word){
+    var len =word.length;
+    var max =0;
+    for(var i="a".charCodeAt(); i<="z".charCodeAt(); i++){
+       var count =0;
+       for(var j=0; j<len; j++){
+         if( word[j]==String.fromCharCode(i) || word[j]==String.fromCharCode(i-32) )
+            count++;
+        } 
+        if(count > max)
+           max = count;
+    }
+  return max;
+}
+  
+  
+var array = str.split(" ");
+lenArr = array.length;
+     
+var f=0;
+for(var h=0; h<lenArr; h++){
+  if ( countGreRepeat(array[h])!= 1 ){
+    f=1;
+    break;
+  }
+}
+
+if(f===0)
+  return -1;
+     
+var flag=0;
+var record=null;
+for(var k=0; k<lenArr; k++){
+  if( countGreRepeat(array[k])>flag ){
+    flag = countGreRepeat(array[k]);
+    record = array[k];
+  }
+}
+    
+return record;
+}
+   
+  
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+LetterCountI(readline());           
