@@ -1,0 +1,26 @@
+// Question: Have the function PalindromeTwo(str) take the str parameter being passed and return the string true 
+// if the parameter is a palindrome, (the string is the same forward as it is backward) otherwise return the 
+// string false. The parameter entered may have punctuation and symbols but they should not affect whether the 
+// string is in fact a palindrome. For example: "Anne, I vote more cars race Rome-to-Vienna" should return true. 
+
+function PalindromeTwo(str) { 
+var array=str.split("");
+var output=[];
+for (var i=0; i<array.length; i++){
+ if( (array[i]>="a" && array[i]<="z") || (array[i]>="A" && array[i]<="Z") )
+    output.push(array[i].toLowerCase());
+}
+
+
+for(var j=0; j<output.length/2; j++){
+if(output[j]!=output[output.length-1-j])
+   return false;
+}
+
+// code goes here  
+return true; 
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+PalindromeTwo(readline());           
