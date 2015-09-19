@@ -1,0 +1,18 @@
+// Question: Lots of 0’s-How many zeros are on the end of n! ? Assume n is big. So n! is REALLY big.
+// Answer: Because one 2 and one 5 can be multiplied to have a zero, and there are more 2’s can be divided by
+// a large number n!, thus we only need to count the number of 5 that can be divided by n!. For this problem,
+// we can count how many times for 1, 2, 3….n each can divided by 5, and sum the results(the result should discard
+// the decimal part before summation) to have the number of trailing zeroes. 
+
+function zerosOfFac(num) {
+    var count=0;
+    var den=5;
+    var value = num/den;
+    while(value>=1){
+        count+=Math.floor(value);
+        den*=5;
+        value = num/den;
+    }
+return count;
+}
+
