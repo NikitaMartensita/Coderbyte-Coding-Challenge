@@ -1,0 +1,29 @@
+// Question: Have the function PrimeMover(num) return the numth prime number. The range will be from 1 to 10^4. 
+// For example: if num is 16 the output should be 53 as 53 is the 16th prime number. 
+
+function isPrime(Num){
+if (Num==1)
+return false;
+for(var i=2; i<=Math.sqrt(Num); i++){
+  if(Num%i===0)
+     return false;
+}
+return true;
+}
+
+function PrimeMover(num) { 
+var flag=1;
+while(num>0){
+  if(isPrime(flag))
+    num--;
+  flag++;
+}
+
+flag--;
+  // code goes here  
+return flag; 
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+PrimeMover(readline());           
