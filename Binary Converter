@@ -1,0 +1,18 @@
+// Question: Have the function BinaryConverter(str) return the decimal form of the binary value. For example: 
+// if 101 is passed return 5, or if 1000 is passed return 8. 
+
+function BinaryConverter(str) { 
+  var array = str.split("").reverse();
+  var sum=0, power=1;
+  for(var i=0; i<array.length; i++){
+      sum +=array[i]*power;
+      power *=2;
+  }
+  // code goes here  
+  return sum; 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+BinaryConverter(readline());           
