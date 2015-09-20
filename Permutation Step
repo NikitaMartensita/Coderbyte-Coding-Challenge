@@ -1,0 +1,31 @@
+// Question: Have the function PermutationStep(num) take the num parameter being passed and return the next
+// number greater than num using the same digits. For example: if num is 123 return 132, if it's 12453 return 
+// 12534. If a number has no greater permutations, return -1 (ie. 999). 
+
+function PermutationStep(num) {
+    var arr = String(num).split("");
+    var len = arr.length;
+    var flag = null,
+        value = null;
+    for (var i = len - 1; i > 0; i--) {
+        if (arr[i] > arr[i - 1]) {
+            value = arr[i];
+            arr[i] = arr[i - 1];
+            arr[i - 1] = value;
+            flag = i;
+            break;
+        }
+    }
+    if (flag === null)
+        return -1;
+    var res = "";
+    res = arr.slice(0, flag).join("") + arr.slice(flag).sort(function(a, b) {
+        return a - b
+    }).join("");
+    // code goes here  
+    return res;
+}
+
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+PermutationStep(readline());   
