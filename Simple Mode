@@ -1,0 +1,31 @@
+// Question: Have the function SimpleMode(arr) take the array of numbers stored in arr and return the number that
+// appears most frequently (the mode). For example: if arr contains [10, 4, 5, 2, 4] the output should be 4. If 
+// there is more than one mode return the one that appeared in the array first (ie. [5, 10, 10, 6, 5] should return 
+// 5 because it appeared first). If there is no mode return -1. The array will not be empty. 
+
+function SimpleMode(arr) { 
+  var len=arr.length;
+  var max=0;
+  var flag=null;
+  for(var i=0; i<len; i++){
+      var count=0; 
+      for(var j=0; j<len; j++){
+          if(arr[j]==arr[i])
+             count++;
+      }
+      if(count>max){
+          max=count;
+          flag=arr[i];
+      }
+  }
+  // code goes here  
+  if (max==1)
+    return -1;
+  else
+    return flag; 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+SimpleMode(readline());           
