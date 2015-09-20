@@ -1,0 +1,33 @@
+// Question: Have the function CaesarCipher(str,num) take the str parameter and perform a Caesar Cipher shift on 
+// it using the num parameter as the shifting number. A Caesar Cipher works by shifting each letter in the string
+// N places down in the alphabet (in this case N will be num). Punctuation, spaces, and capitalization should 
+// remain intact. For example if the string is "Caesar Cipher" and num is 2 the output should be "Ecguct Ekrjgt". 
+
+function letterTransform(l, num){
+    if("a"<=l && "z">=l){
+        var reminder1=(l.charCodeAt()-"a".charCodeAt()+num)%26;
+        return String.fromCharCode(reminder1+"a".charCodeAt());
+    }
+    if ("A"<=l && "Z">=l){
+        var reminder2=(l.charCodeAt()-"A".charCodeAt()+num)%26;
+        return String.fromCharCode(reminder2+"A".charCodeAt());
+    }
+    return l;
+}
+
+function CaesarCipher(str,num) { 
+    var arr=str.split("");
+    var length=arr.length;
+    var res=[];
+    for(var i=0; i<length; i++){
+        res +=letterTransform(arr[i], num);
+    }
+
+  // code goes here  
+  return res; 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+CaesarCipher(readline());           
