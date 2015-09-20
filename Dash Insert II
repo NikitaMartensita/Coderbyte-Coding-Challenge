@@ -1,0 +1,33 @@
+// Question: Have the function DashInsertII(str) insert dashes ('-') between each two odd numbers and insert
+// asterisks ('*') between each two even numbers in str. For example: if str is 4546793 the output should be 
+// 454*67-9-3. Don't count zero as an odd or even number.
+
+function DashInsertII(num) {
+    var str = num.toString();
+    var len = str.length;
+    var strNew = "";
+    for (var i = 0; i < str.length - 1; i++) {
+        strNew += str[i];
+        if (str[i] % 2 == 1 && str[i + 1] % 2 == 1)
+            strNew += "-";
+    }
+    strNew += str[str.length - 1];
+    var res = "";
+    for (var j = 0; j < strNew.length - 1; j++) {
+        res += strNew[j];
+        if (strNew[j]!= 0 && strNew[j + 1]!=0) {
+            if (strNew[j] % 2 == 0 && strNew[j + 1] % 2 == 0)
+                res += "*";
+        }
+    }
+
+    res += strNew[strNew.length - 1];
+
+    // code goes here  
+    return res;
+
+}
+
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+DashInsertII(readline());           
