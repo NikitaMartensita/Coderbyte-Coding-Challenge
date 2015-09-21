@@ -1,0 +1,40 @@
+// Have the function TripleDouble(num1,num2) take both parameters being passed, and return 1 if there is a 
+// straight triple of a number at any place in num1 and also a straight double of the same number in num2.
+// For example: if num1 equals 451999277 and num2 equals 41177722899, then return 1 because in the first
+// parameter you have the straight triple 999 and you have a straight double, 99, of the same number in the 
+// second parameter. If this isn't the case, return 0. 
+
+function TripleDouble(num1, num2) {
+    var str1 = num1.toString();
+    var arr = [];
+    for (var i = 0; i < 10; i++) {
+        var count = 0;
+        for (var j = 0; j < str1.length; j++) {
+            if (str1[j] == i.toString())
+                count++;
+        }
+        if (count >= 3)
+            arr.push(i);
+    }
+    if (arr.length == 0)
+        return 0;
+
+    var str2 = num2.toString();
+    for (var i = 0; i < arr.length; i++) {
+        var count = 0;
+        for (var j = 0; j < str2.length; j++) {
+            if (str2[j] == arr[i].toString())
+                count++;
+        }
+        if (count >= 2)
+            return 1;
+    }
+
+    // code goes here  
+    return 0;
+}
+
+
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+TripleDouble(readline());           
