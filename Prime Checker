@@ -1,0 +1,49 @@
+// Have the function PrimeChecker(num) take num and return 1 if any arrangement of num comes out to be a 
+// prime number, otherwise return 0. For example: if num is 910, the output should be 1 because 910 can be 
+// arranged into 109 or 019, both of which are primes. 
+
+function genPerm(numstr) {
+    var numarr = numstr.split("");
+    var perms = [];
+    var rest, picked, restPerms, next;
+
+    if (numarr.length === 0) {
+        return [numstr];
+    }
+    for (var i = 0; i < numarr.length; i++) {
+        rest = Object.create(numarr);
+        picked = rest.splice(i, 1);
+
+        restPerms = genPerm(rest.join(""));
+
+        for (var j = 0, jLen = restPerms.length; j < jLen; j++) {
+            next = picked.concat(restPerms[j]);
+            perms.push(next.join(""));
+        }
+    }
+    return perms;
+}
+
+function isPrime(num) {
+    for (var i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0)
+            return false;
+    }
+    return true;
+}
+
+function PrimeChecker(num) {
+    var str = num.toString();
+    var arr = genPerm(str);
+    for (var i = 0; i < arr.length; i++) {
+        if (isPrime(arr[i]))
+            return 1;
+    }
+    // code goes here  
+    return 0;
+
+}
+
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+PrimeChecker(readline());           
