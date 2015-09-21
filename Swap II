@@ -1,0 +1,47 @@
+// Have the function SwapII(str) take the str parameter and swap the case of each character. Then, if a letter
+// is between two numbers (without separation), switch the places of the two numbers. For example: if str is 
+// "6Hello4 -8World, 7 yes3" the output should be 4hELLO6 -8wORLD, 7 YES3. 
+
+function trans(str) {
+    var arr = [];
+    var newarr = [];
+    var value = null;
+    var count = 0;
+    for (var j = 0; j < str.length; j++) {
+        if ("0".charCodeAt() <= str[j].charCodeAt() && "9".charCodeAt() >= str[j].charCodeAt()) {
+            arr[count] = j;
+            count++;
+        }
+    }
+    if (count < 2)
+        return str;
+    else {
+        newarr = str.split("");
+        value = newarr[arr[1]];
+        newarr[arr[1]] = newarr[arr[0]];
+        newarr[arr[0]] = value;
+        return newarr.join("");
+    }
+}
+
+
+function SwapII(str) {
+    var res = "";
+    for (var i = 0; i < str.length; i++) {
+        if (str[i] >= "a" && str[i] <= "z")
+            res += str[i].toUpperCase();
+        else if (str[i] >= "A" && str[i] <= "Z")
+            res += str[i].toLowerCase();
+        else res += str[i];
+    }
+    var arr = res.split(" ");
+    for (var j = 0; j < arr.length; j++) {
+        arr[j] = trans(arr[j]);
+    }
+    return arr.join(" ");
+
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+SwapII(readline());           
