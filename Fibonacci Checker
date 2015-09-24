@@ -1,0 +1,22 @@
+// Have the function FibonacciChecker(num) return the string yes if the number given is part of the Fibonacci 
+// sequence. This sequence is defined by: Fn = Fn-1 + Fn-2, which means to find Fn you add the previous two 
+// numbers up. The first two numbers are 0 and 1, then comes 1, 2, 3, 5 etc. If num is not in the Fibonacci 
+// sequence, return the string no. 
+
+function FibonacciChecker(num) { 
+  F1=0;
+  F2=1;
+  Fn=0;
+  while(Fn<num){
+  Fn=F1+F2;
+  F1=F2;
+  F2=Fn;}
+  
+  if(Fn==num)
+    return "yes";
+  else return "no";
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+FibonacciChecker(readline());           
