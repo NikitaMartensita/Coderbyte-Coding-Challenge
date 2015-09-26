@@ -1,0 +1,51 @@
+// Have the function MostFreeTime(strArr) read the strArr parameter being passed which will represent a full day and will be
+// filled with events that span from time X to time Y in the day. The format of each event will be hh:mmAM/PM-hh:mmAM/PM. For
+// example, strArr may be ["10:00AM-12:30PM","02:00PM-02:45PM","09:10AM-09:50AM"]. Your program will have to output the longest // amount of free time available between the start of your first event and the end of your last event in the format: hh:mm. The // start event should be the earliest event in the day and the latest event should be the latest event in the day. The output
+// for the previous input would therefore be 01:30 (with the earliest event in the day starting at 09:10AM and the latest event // ending at 02:45PM). The input will contain at least 3 events and the events may be out of order. 
+
+
+function minutes(str) {
+    amPm = str.slice(-2);
+    timeStr = str.slice(0, -2);
+    newTimeStr = timeStr.split(":");
+    newTimeStr[0] *= 1;
+    newTimeStr[1] *= 1;
+    if (newTimeStr[0] == 12)
+        newTimeStr[0] = 0;
+    amPm == "AM" ? 0 : 1;
+    return newTimeStr[0] * 60 + newTimeStr[1] + (amPm == "AM" ? 0 : 12 * 60);
+}
+
+function timeFormat(num) {
+    var h = (Math.floor(num / 60)).toString();
+    var m = (num % 60).toString();
+    if (h < 10)
+        h = "0" + h;
+    if (m < 10)
+        m = "0" + m;
+    return h + ":" + m;
+}
+
+function MostFreeTime(strArr) {
+    var newArr = strArr.join("-").split("-");
+    for (var i = 0; i < newArr.length; i++) {
+        newArr[i] = minutes(newArr[i]);
+    }
+    newArr.sort(function(a, b) {
+        return a - b;
+    });
+    var a = [];
+    var index = 0;
+    for (j = 1; j < newArr.length - 1;) {
+        a[index] = newArr[j + 1] - newArr[j];
+        j += 2;
+        index++;
+    }
+    return timeFormat(a.sort(function(a, b) {
+        return a - b;
+    }).pop());
+}
+
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+MostFreeTime(readline());           
