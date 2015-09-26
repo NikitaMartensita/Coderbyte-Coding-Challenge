@@ -1,0 +1,35 @@
+// Have the function ReversePolishNotation(str) read str which will be an arithmetic expression composed of only integers and 
+// the operators: +,-,* and / and the input expression will be in postfix notation (Reverse Polish notation), an example: (1 + 2// ) * 3 would be 1 2 + 3 * in postfix notation. Your program should determine the answer for the given postfix expression. For // example: if str is 2 12 + 7 / then your program should output 2. 
+
+function ReversePolishNotation(str) {
+    strArr = str.split(" ");
+    var arr = [];
+    var value = null;
+    for (var i = 0; i < strArr.length; i++) {
+        if (strArr[i] != "+" && strArr[i] != "-" && strArr[i] != "*" && strArr[i] != "/")
+            arr.push(strArr[i] * 1);
+        else {
+            switch (strArr[i]) {
+                case "+":
+                    value = arr.pop() + arr.pop();
+                    break;
+                case "-":
+                    value = -arr.pop() + arr.pop();
+                    break;
+                case "*":
+                    value = arr.pop() * arr.pop();
+                    break;
+                case "/":
+                    value = 1 / arr.pop() * arr.pop();
+                    break;
+            }
+            arr.push(value);
+        }
+    }
+    // code goes here  
+    return arr[0];
+}
+
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+ReversePolishNotation(readline());           
